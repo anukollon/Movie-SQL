@@ -50,3 +50,25 @@ delete from movies where movie_id=18;
 
 Cannot delete or update a parent row: a foreign key constraint fails.
 
+Bonus Missions:
+
+1. Note that SQL aliases give a table or column a temporary name. Assign aliases in at least 3 of the items above to make the columns names different and/or more readable in the output.
+
+SELECT title as Movies FROM movie_buff.movies;
+
+2. List all of the movies in the database directed by Peter Jackson.
+SELECT title as Movies FROM movie_buff.movies inner join directors on directors.last_name="Jackson"and directors.first_name="Peter";
+
+3. a. Add another column to the movies table that holds the amount of money earned by each film.
+
+alter table movies add column money_earned integer;
+
+Use UPDATE to enter these values for each movie in the database.
+3.b. Generate a list that ranks the movie titles based on earnings.
+
+select title from movies order by money_earned asc;
+
+3.c. Generate a list that only shows films that earned above (or below) a certain amount.
+
+select title from movies where money_earned > 100000;
+
